@@ -1,0 +1,128 @@
+	Sat Jul  4 15:35 2020 Time and Allocation Profiling Report  (Final)
+
+	   Main +RTS -s -p -hd -K100M -RTS
+
+	total time  =        9.28 secs   (9278 ticks @ 1000 us, 1 processor)
+	total alloc = 11,016,936,832 bytes  (excludes profiling overheads)
+
+COST CENTRE  MODULE    SRC                          %time %alloc
+
+update       SegTree   SegTree.hs:(132,1)-(145,24)   40.1   27.2
+query        SegTree   SegTree.hs:(96,1)-(105,24)    17.6    1.6
+main         Main      Main.hs:(34,1)-(42,40)        12.9   16.2
+appE         Main      Main.hs:(30,5)-(31,48)        12.1   15.3
+query_Divide SegTree   SegTree.hs:103:46-89           4.0   12.1
+<>           SegTree   SegTree.hs:16:5-32             3.6    2.1
+query_Right  SegTree   SegTree.hs:102:44-76           1.3    1.8
+query_Left   SegTree   SegTree.hs:101:43-65           1.3    1.7
+update.r'    SegTree   SegTree.hs:142:25-50           1.2    6.0
+update.l'    SegTree   SegTree.hs:141:25-46           1.1    6.0
+int          Main      Main.hs:45:1-29                1.0    2.7
+update.r'    SegTree   SegTree.hs:139:22-53           0.7    3.5
+update.l'    SegTree   SegTree.hs:137:22-43           0.5    3.3
+
+
+                                                                                                                                     individual      inherited
+COST CENTRE              MODULE                            SRC                                                   no.      entries  %time %alloc   %time %alloc
+
+MAIN                     MAIN                              <built-in>                                             731          0    0.0    0.0   100.0  100.0
+ CAF                     SegTree                           <entire-module>                                       1461          0    0.0    0.0     0.0    0.0
+  sized                  SegTree                           SegTree.hs:22:1-17                                    1526          1    0.0    0.0     0.0    0.0
+ CAF                     Main                              <entire-module>                                       1460          0    0.0    0.0     0.0    0.0
+  <>                     Main                              Main.hs:25:5-21                                       1547          1    0.0    0.0     0.0    0.0
+  assign                 Main                              Main.hs:27:1-21                                       1539          1    0.0    0.0     0.0    0.0
+  gcdD                   Main                              Main.hs:21:1-18                                       1514          1    0.0    0.0     0.0    0.0
+  int                    Main                              Main.hs:45:1-29                                       1464          1    0.0    0.0     0.0    0.0
+  main                   Main                              Main.hs:(34,1)-(42,40)                                1462          1    0.0    0.0     0.0    0.0
+ CAF                     GHC.IO.Encoding                   <entire-module>                                        821          0    0.0    0.0     0.0    0.0
+ CAF                     GHC.IO.Encoding.Iconv             <entire-module>                                        819          0    0.0    0.0     0.0    0.0
+ CAF                     GHC.IO.Handle.FD                  <entire-module>                                        807          0    0.0    0.0     0.0    0.0
+ CAF                     GHC.IO.Handle.Text                <entire-module>                                        802          0    0.0    0.0     0.0    0.0
+ CAF                     GHC.Conc.Signal                   <entire-module>                                        780          0    0.0    0.0     0.0    0.0
+ CAF:$fApplicativeId4    Data.Vector.Fusion.Util           <no location info>                                    1442          0    0.0    0.0     0.0    0.0
+  pure                   Data.Vector.Fusion.Util           Data/Vector/Fusion/Util.hs:31:3-11                    1477          1    0.0    0.0     0.0    0.0
+ CAF:$fMonadId1          Data.Vector.Fusion.Util           <no location info>                                    1444          0    0.0    0.0     0.0    0.0
+  return                 Data.Vector.Fusion.Util           Data/Vector/Fusion/Util.hs:35:3-15                    1476          1    0.0    0.0     0.0    0.0
+ CAF:$fPrimMonadST1_r5gX Control.Monad.Primitive           <no location info>                                     988          0    0.0    0.0     0.0    0.0
+  primitive              Control.Monad.Primitive           Control/Monad/Primitive.hs:205:3-16                   1493          1    0.0    0.0     0.0    0.0
+ CAF:doBoundsChecks      Data.Vector.Internal.Check        Data/Vector/Internal/Check.hs:55:1-14                 1447          0    0.0    0.0     0.0    0.0
+  doBoundsChecks         Data.Vector.Internal.Check        Data/Vector/Internal/Check.hs:55:1-21                 1509          1    0.0    0.0     0.0    0.0
+ CAF:doInternalChecks    Data.Vector.Internal.Check        Data/Vector/Internal/Check.hs:71:1-16                 1449          0    0.0    0.0     0.0    0.0
+  doInternalChecks       Data.Vector.Internal.Check        Data/Vector/Internal/Check.hs:71:1-24                 1490          1    0.0    0.0     0.0    0.0
+ CAF:doUnsafeChecks      Data.Vector.Internal.Check        Data/Vector/Internal/Check.hs:64:1-14                 1448          0    0.0    0.0     0.0    0.0
+  doUnsafeChecks         Data.Vector.Internal.Check        Data/Vector/Internal/Check.hs:64:1-22                 1470          1    0.0    0.0     0.0    0.0
+ main                    Main                              Main.hs:(34,1)-(42,40)                                1463          0   12.9   16.2   100.0  100.0
+  query                  SegTree                           SegTree.hs:(96,1)-(105,24)                            1467   22035661   17.6    1.6    31.1   23.3
+   query.(...)           SegTree                           SegTree.hs:105:9-24                                   1518   14690892    0.8    0.0     0.8    0.0
+    size                 SegTree                           SegTree.hs:(80,1)-(81,29)                             1519   14690892    0.0    0.0     0.0    0.0
+   query.sl              SegTree                           SegTree.hs:105:9-24                                   1517   14690892    0.0    0.0     0.0    0.0
+   query_Divide          SegTree                           SegTree.hs:103:46-89                                  1521    6844639    4.0   12.1     6.8   15.0
+    appE                 Main                              Main.hs:(30,5)-(31,48)                                1524    6844639    2.6    2.8     2.7    2.9
+     gcdD                Main                              Main.hs:21:1-18                                       1546          0    0.0    0.1     0.0    0.1
+    <>                   Main                              Main.hs:19:5-40                                       1528     327059    0.2    0.0     0.2    0.0
+   query_Right           SegTree                           SegTree.hs:102:44-76                                  1522    4020189    1.3    1.8     3.0    3.4
+    appE                 Main                              Main.hs:(30,5)-(31,48)                                1523    4020189    1.7    1.6     1.7    1.7
+     gcdD                Main                              Main.hs:21:1-18                                       1543          0    0.0    0.0     0.0    0.0
+   query_Left            SegTree                           SegTree.hs:101:43-65                                  1525    3826064    1.3    1.7     2.8    3.3
+    appE                 Main                              Main.hs:(30,5)-(31,48)                                1527    3826064    1.5    1.6     1.5    1.6
+     gcdD                Main                              Main.hs:21:1-18                                       1548          0    0.0    0.0     0.0    0.0
+  update                 SegTree                           SegTree.hs:(132,1)-(145,24)                           1531   22029134   40.1   27.2    54.4   57.2
+   eval                  SegTree                           SegTree.hs:(87,1)-(88,25)                             1535   29370784    0.0    0.0     0.0    0.0
+   appE                  Main                              Main.hs:(30,5)-(31,48)                                1540   22029134    6.3    9.2     6.3    9.2
+    gcdD                 Main                              Main.hs:21:1-18                                       1545          0    0.0    0.0     0.0    0.0
+   update.(...)          SegTree                           SegTree.hs:145:9-24                                   1533   14685392    0.8    0.0     0.8    0.0
+    size                 SegTree                           SegTree.hs:(80,1)-(81,29)                             1534   14685392    0.0    0.0     0.0    0.0
+   update.sl             SegTree                           SegTree.hs:145:9-24                                   1532   14685392    0.0    0.0     0.0    0.0
+   <>                    SegTree                           SegTree.hs:16:5-32                                    1542   14098674    3.6    2.0     3.6    2.0
+   update.l'             SegTree                           SegTree.hs:141:25-46                                  1538    6843872    1.1    6.0     1.1    6.0
+   update.r'             SegTree                           SegTree.hs:142:25-50                                  1541    6843872    1.2    6.0     1.2    6.0
+   update.r'             SegTree                           SegTree.hs:139:22-53                                  1536    4018166    0.7    3.5     0.7    3.5
+   update.l'             SegTree                           SegTree.hs:137:22-43                                  1537    3823354    0.5    3.3     0.5    3.3
+   <>                    Main                              Main.hs:19:5-40                                       1544        128    0.0    0.0     0.0    0.0
+  fromGcd                Main                              Main.hs:17:22-28                                      1466     500130    0.0    0.0     0.0    0.0
+  fromVector             SegTree                           SegTree.hs:(157,1)-(162,39)                           1499     199999    0.2    0.1     0.4    0.5
+   unId                  Data.Vector.Fusion.Util           Data/Vector/Fusion/Util.hs:25:21-24                   1510     200000    0.0    0.0     0.0    0.0
+   fromVector.n          SegTree                           SegTree.hs:161:9-24                                   1500     199999    0.1    0.0     0.1    0.0
+    basicLength          Data.Vector                       Data/Vector.hs:284:3-32                               1502     199999    0.0    0.0     0.0    0.0
+    unId                 Data.Vector.Fusion.Util           Data/Vector/Fusion/Util.hs:25:21-24                   1501     199999    0.0    0.0     0.0    0.0
+   basicLength           Data.Vector                       Data/Vector.hs:284:3-32                               1511     100000    0.0    0.0     0.0    0.0
+   basicUnsafeIndexM     Data.Vector                       Data/Vector.hs:290:3-62                               1512     100000    0.0    0.0     0.0    0.0
+    array#               Data.Primitive.Array              Data/Primitive/Array.hs:87:5-10                       1513     100000    0.0    0.0     0.0    0.0
+   branch                SegTree                           SegTree.hs:70:1-49                                    1515      99999    0.1    0.1     0.1    0.2
+    eval                 SegTree                           SegTree.hs:(87,1)-(88,25)                             1516     199998    0.0    0.0     0.0    0.0
+    <>                   SegTree                           SegTree.hs:16:5-32                                    1520      99998    0.0    0.0     0.0    0.0
+    <>                   Main                              Main.hs:19:5-40                                       1529      60576    0.0    0.0     0.0    0.0
+   fromVector.(...)      SegTree                           SegTree.hs:162:9-39                                   1503      99999    0.1    0.2     0.1    0.2
+    basicUnsafeSlice     Data.Vector                       Data/Vector.hs:287:3-60                               1506     199998    0.0    0.0     0.0    0.0
+    basicLength          Data.Vector                       Data/Vector.hs:284:3-32                               1505      99999    0.0    0.0     0.0    0.0
+    unId                 Data.Vector.Fusion.Util           Data/Vector/Fusion/Util.hs:25:21-24                   1504      99999    0.0    0.0     0.0    0.0
+   fromVector.l          SegTree                           SegTree.hs:162:9-39                                   1507      99999    0.0    0.0     0.0    0.0
+   fromVector.r          SegTree                           SegTree.hs:162:9-39                                   1508      99999    0.0    0.0     0.0    0.0
+  basicLength            Data.Vector.Mutable               Data/Vector/Mutable.hs:88:3-33                        1479     100018    0.0    0.0     0.0    0.0
+  >>=                    Data.Vector.Fusion.Util           Data/Vector/Fusion/Util.hs:36:3-18                    1475     100001    0.0    0.0     0.2    0.1
+   fmap                  Data.Vector.Fusion.Stream.Monadic Data/Vector/Fusion/Stream/Monadic.hs:(133,3)-(135,20) 1478     100001    0.1    0.1     0.1    0.1
+    basicUnsafeWrite     Data.Vector.Mutable               Data/Vector/Mutable.hs:120:3-65                       1491     100000    0.0    0.0     0.1    0.0
+     primitive           Control.Monad.Primitive           Control/Monad/Primitive.hs:205:3-16                   1494          0    0.0    0.0     0.0    0.0
+      marray#            Data.Primitive.Array              Data/Primitive/Array.hs:92:5-11                       1495     100000    0.0    0.0     0.0    0.0
+  basicUnsafeSlice       Data.Vector.Mutable               Data/Vector/Mutable.hs:91:3-62                        1492     100001    0.0    0.0     0.0    0.0
+  unId                   Data.Vector.Fusion.Util           Data/Vector/Fusion/Util.hs:25:21-24                   1474     100001    0.0    0.0     0.0    0.0
+  basicUnsafeGrow        Data.Vector.Generic.Mutable.Base  Data/Vector/Generic/Mutable/Base.hs:(140,3)-(146,23)  1482         18    0.0    0.0     0.0    0.0
+   basicUnsafeCopy       Data.Vector.Mutable               Data/Vector/Mutable.hs:(123,3)-(124,36)               1488         18    0.0    0.0     0.0    0.0
+    primitive            Control.Monad.Primitive           Control/Monad/Primitive.hs:205:3-16                   1489         18    0.0    0.0     0.0    0.0
+   basicUnsafeGrow.n     Data.Vector.Generic.Mutable.Base  Data/Vector/Generic/Mutable/Base.hs:146:7-23          1484         18    0.0    0.0     0.0    0.0
+    basicLength          Data.Vector.Mutable               Data/Vector/Mutable.hs:88:3-33                        1485         18    0.0    0.0     0.0    0.0
+   basicUnsafeNew        Data.Vector.Mutable               Data/Vector/Mutable.hs:(101,3)-(104,32)               1483         18    0.0    0.0     0.0    0.0
+    primitive            Control.Monad.Primitive           Control/Monad/Primitive.hs:205:3-16                   1486         18    0.0    0.0     0.0    0.0
+   basicUnsafeSlice      Data.Vector.Mutable               Data/Vector/Mutable.hs:91:3-62                        1487         18    0.0    0.0     0.0    0.0
+  enlarge_delta          Data.Vector.Generic.Mutable       Data/Vector/Generic/Mutable.hs:642:1-34               1480         18    0.0    0.0     0.0    0.0
+   basicLength           Data.Vector.Mutable               Data/Vector/Mutable.hs:88:3-33                        1481         18    0.0    0.0     0.0    0.0
+  basicUnsafeFreeze      Data.Vector                       Data/Vector.hs:(276,3)-(277,47)                       1496          1    0.0    0.0     0.0    0.0
+   primitive             Control.Monad.Primitive           Control/Monad/Primitive.hs:205:3-16                   1497          1    0.0    0.0     0.0    0.0
+    marray#              Data.Primitive.Array              Data/Primitive/Array.hs:92:5-11                       1498          1    0.0    0.0     0.0    0.0
+  basicUnsafeNew         Data.Vector.Mutable               Data/Vector/Mutable.hs:(101,3)-(104,32)               1471          1    0.0    0.0     0.0    0.0
+   primitive             Control.Monad.Primitive           Control/Monad/Primitive.hs:205:3-16                   1472          1    0.0    0.0     0.0    0.0
+  sChunks                Data.Vector.Fusion.Bundle.Monadic Data/Vector/Fusion/Bundle/Monadic.hs:122:30-36        1473          1    0.0    0.0     0.0    0.0
+  sSize                  Data.Vector.Fusion.Bundle.Monadic Data/Vector/Fusion/Bundle/Monadic.hs:124:30-34        1469          1    0.0    0.0     0.0    0.0
+  upperBound             Data.Vector.Fusion.Bundle.Size    Data/Vector/Fusion/Bundle/Size.hs:(126,1)-(128,30)    1468          1    0.0    0.0     0.0    0.0
+  gcdD                   Main                              Main.hs:21:1-18                                       1530          0    0.0    0.0     0.0    0.0
+  int                    Main                              Main.hs:45:1-29                                       1465          0    1.0    2.7     1.0    2.7
